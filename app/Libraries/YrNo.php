@@ -5,7 +5,7 @@
  * A library for working with weather data from Yr.no for Codeigniter 4
  *
  * @author Elix <elix.dev@gmx.com>
- * @version 1.3
+ * @version 1.4
  *
  * Use:
  * ------------
@@ -70,7 +70,7 @@ class YrNo {
 	/**
 	 * Array data from JSON
 	 */
-	private $data;
+	public $data;
 
 
 
@@ -202,8 +202,8 @@ class YrNo {
 	 * @return string Temperature
 	 */
 	public function getTemperature( $datetime ) {
-		$datestring = $datetime->toDateString() . 'T' . $datetime->getHour() . ':00:00Z';
-		$datestring = $this->_modifyHour( $datestring );
+
+		$datestring = $this->_formatDatetimeValue( $datetime );
 
 		if( $this->data !== false ) {
 			foreach( $this->data['properties']['timeseries'] as $hours) {
@@ -227,8 +227,8 @@ class YrNo {
 	 * @return string Pressure
 	 */
 	public function getPressure( $datetime ) {
-		$datestring = $datetime->toDateString() . 'T' . $datetime->getHour() . ':00:00Z';
-		$datestring = $this->_modifyHour( $datestring );
+
+		$datestring = $this->_formatDatetimeValue( $datetime );
 
 		if( $this->data !== false ) {
 			foreach( $this->data['properties']['timeseries'] as $hours) {
@@ -252,8 +252,8 @@ class YrNo {
 	 * @return string Cloud area fraction
 	 */
 	public function getCloudAreaFraction( $datetime ) {
-		$datestring = $datetime->toDateString() . 'T' . $datetime->getHour() . ':00:00Z';
-		$datestring = $this->_modifyHour( $datestring );
+
+		$datestring = $this->_formatDatetimeValue( $datetime );
 
 		if( $this->data !== false ) {
 			foreach( $this->data['properties']['timeseries'] as $hours) {
@@ -278,8 +278,8 @@ class YrNo {
 	 * @return string Cloud area low fraction
 	 */
 	public function getCloudAreaFractionLow( $datetime ) {
-		$datestring = $datetime->toDateString() . 'T' . $datetime->getHour() . ':00:00Z';
-		$datestring = $this->_modifyHour( $datestring );
+
+		$datestring = $this->_formatDatetimeValue( $datetime );
 
 		if( $this->data !== false ) {
 			foreach( $this->data['properties']['timeseries'] as $hours) {
@@ -303,8 +303,8 @@ class YrNo {
 	 * @return string Cloud area medium fraction
 	 */
 	public function getCloudAreaFractionMedium( $datetime ) {
-		$datestring = $datetime->toDateString() . 'T' . $datetime->getHour() . ':00:00Z';
-		$datestring = $this->_modifyHour( $datestring );
+
+		$datestring = $this->_formatDatetimeValue( $datetime );
 
 		if( $this->data !== false ) {
 			foreach( $this->data['properties']['timeseries'] as $hours) {
@@ -328,8 +328,8 @@ class YrNo {
 	 * @return string Cloud area high fraction
 	 */
 	public function getCloudAreaFractionHigh( $datetime ) {
-		$datestring = $datetime->toDateString() . 'T' . $datetime->getHour() . ':00:00Z';
-		$datestring = $this->_modifyHour( $datestring );
+
+		$datestring = $this->_formatDatetimeValue( $datetime );
 
 		if( $this->data !== false ) {
 			foreach( $this->data['properties']['timeseries'] as $hours) {
@@ -353,8 +353,8 @@ class YrNo {
 	 * @return string Fog area high fraction
 	 */
 	public function getFogAreaFraction( $datetime ) {
-		$datestring = $datetime->toDateString() . 'T' . $datetime->getHour() . ':00:00Z';
-		$datestring = $this->_modifyHour( $datestring );
+
+		$datestring = $this->_formatDatetimeValue( $datetime );
 
 		if( $this->data !== false ) {
 			foreach( $this->data['properties']['timeseries'] as $hours) {
@@ -378,8 +378,8 @@ class YrNo {
 	 * @return string Dew point in °C
 	 */
 	public function getDewPoint( $datetime ) {
-		$datestring = $datetime->toDateString() . 'T' . $datetime->getHour() . ':00:00Z';
-		$datestring = $this->_modifyHour( $datestring );
+
+		$datestring = $this->_formatDatetimeValue( $datetime );
 
 		if( $this->data !== false ) {
 			foreach( $this->data['properties']['timeseries'] as $hours) {
@@ -403,8 +403,8 @@ class YrNo {
 	 * @return string Humidity in %
 	 */
 	public function getHumidity( $datetime ) {
-		$datestring = $datetime->toDateString() . 'T' . $datetime->getHour() . ':00:00Z';
-		$datestring = $this->_modifyHour( $datestring );
+
+		$datestring = $this->_formatDatetimeValue( $datetime );
 
 		if( $this->data !== false ) {
 			foreach( $this->data['properties']['timeseries'] as $hours) {
@@ -428,8 +428,8 @@ class YrNo {
 	 * @return string UV index
 	 */
 	public function getUVindex( $datetime ) {
-		$datestring = $datetime->toDateString() . 'T' . $datetime->getHour() . ':00:00Z';
-		$datestring = $this->_modifyHour( $datestring );
+
+		$datestring = $this->_formatDatetimeValue( $datetime );
 
 		if( $this->data !== false ) {
 			foreach( $this->data['properties']['timeseries'] as $hours) {
@@ -451,8 +451,8 @@ class YrNo {
 	 * @return string Wind speed in m/s
 	 */
 	public function getWindSpeed( $datetime ) {
-		$datestring = $datetime->toDateString() . 'T' . $datetime->getHour() . ':00:00Z';
-		$datestring = $this->_modifyHour( $datestring );
+
+		$datestring = $this->_formatDatetimeValue( $datetime );
 
 		if( $this->data !== false ) {
 			foreach( $this->data['properties']['timeseries'] as $hours) {
@@ -474,8 +474,8 @@ class YrNo {
 	 * @return string Wind direction in °
 	 */
 	public function getWindDirectionInDegrees( $datetime ) {
-		$datestring = $datetime->toDateString() . 'T' . $datetime->getHour() . ':00:00Z';
-		$datestring = $this->_modifyHour( $datestring );
+
+		$datestring = $this->_formatDatetimeValue( $datetime );
 
 		if( $this->data !== false ) {
 			foreach( $this->data['properties']['timeseries'] as $hours) {
@@ -501,10 +501,9 @@ class YrNo {
 	 * @return string Icon name
 	 */
 	public function getIconName( $datetime ) {
-		//d($datetime);
 
-		$datestring = $datetime->toDateString() . 'T' . $datetime->getHour() . ':00:00Z';
-		$datestring = $this->_modifyHour( $datestring );
+		$datestring = $this->_formatDatetimeValue( $datetime );
+
 		if( $this->data !== false ) {
 			foreach( $this->data['properties']['timeseries'] as $hours) {
 				if( $hours['time'] == $datestring ) {
@@ -515,7 +514,7 @@ class YrNo {
 			}
 		}
 		log_message('warning', 'Icon name value from Yr.no not exists!');
-		return 'noicon';
+		return false;
 	}
 
 
@@ -586,8 +585,8 @@ class YrNo {
 	 * @return string Precipitation amount in mm
 	 */
 	public function getPrecipitationAmount( $datetime ) {
-		$datestring = $datetime->toDateString() . 'T' . $datetime->getHour() . ':00:00Z';
-		$datestring = $this->_modifyHour( $datestring );
+
+		$datestring = $this->_formatDatetimeValue( $datetime );
 
 		if( $this->data !== false ) {
 			foreach( $this->data['properties']['timeseries'] as $hours) {
@@ -625,20 +624,6 @@ class YrNo {
 
 
 	/**
-	 * Modify hour from format X into XX
-	 *
-	 * @param string Hour
-	 * @return string Modifying hour
-	 */
-	private function _modifyHour( $hour ) {
-		$old = array('T0:', 'T1:', 'T2:', 'T3:', 'T4:', 'T5:', 'T6:', 'T7:', 'T8:', 'T9:');
-		$new = array('T00:', 'T01:', 'T02:', 'T03:', 'T04:', 'T05:', 'T06:', 'T07:', 'T08:', 'T09:');
-		return (string) str_replace($old, $new, $hour);
-	}
-
-
-
-	/**
 	 * Get complete Yr.no API URL
 	 *
 	 * @return string
@@ -664,5 +649,20 @@ class YrNo {
 	 */
 	private function _getUserAgent() {
 		return (string) $this->user_agent;
+	}
+
+
+
+	/**
+	 * Modify datetime value
+	 *
+	 * @param object
+	 * @return string
+	 */
+	private function _formatDatetimeValue( $datetime ) {
+		$format_time = $datetime->format('Y-m-d\TH:00:00\Z');
+		$hours = str_pad($datetime->getHour(), 2, '0', STR_PAD_LEFT);
+		$datestring = substr_replace($format_time, $hours, 11, 2);
+		return (string) $datestring;
 	}
 }
