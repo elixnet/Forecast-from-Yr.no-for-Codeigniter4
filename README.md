@@ -23,55 +23,76 @@ etc...
 ## Available public methods:
 
 ### Library settings
-`$this->weather->setLatitude('49.1547')` Latitude settings
+Latitude settings
+`$this->weather->setLatitude('49.1547')`
 
-`$this->weather->setLatitude('19.4678')` Longitude settings
+Longitude settings
+`$this->weather->setLatitude('19.4678')`
 
-`$this->weather->setAltitude('254')` Altitude settings
+Altitude settings
+`$this->weather->setAltitude('254')`
 
-`$this->weather->setUserAgent('User agent string')` User agent settings
+User agent settings
+`$this->weather->setUserAgent('User agent string')` 
 
 
 ### Data output
-`$this->weather->getTemperature( $time )`: Temperature (°C)
+Temperature (°C)
+`$this->weather->getTemperature( $time )`
 
-`$this->weather->getPressure( $time )`: Pressure (hPa)
+Pressure (hPa)
+`$this->weather->getPressure( $time )`
 
-`$this->weather->getHumidity( $time )`: Humidity (%)
+Humidity (%)
+`$this->weather->getHumidity( $time )`
 
-`$this->weather->getWindSpeed( $time )`: Wind speed (m/s)
+Wind speed (m/s)
+`$this->weather->getWindSpeed( $time )`
 
-`$this->weather->getWindDirectionInWorldSides( $time )`: Wind direction from world side (N or SE etc.)
+Wind direction from world side (N or SE etc.)
+`$this->weather->getWindDirectionInWorldSides( $time )`
 
-`$this->weather->getWindDirectionInDegrees( $time )`: Wind direction in degrees (0-360°)
+Wind direction in degrees (0-360°)
+`$this->weather->getWindDirectionInDegrees( $time )`
 
-`$this->weather->getFogAreaFraction( $time )`: Fog
+Fog
+`$this->weather->getFogAreaFraction( $time )`
 
-`$this->weather->getDewPoint( $time )`: Dew point (°C)
+Dew point (°C)
+`$this->weather->getDewPoint( $time )`
 
-`$this->weather->getCloudAreaFraction( $time )`: Clouds all (%)
+Clouds all (%)
+`$this->weather->getCloudAreaFraction( $time )`
 
-`$this->weather->getCloudAreaFractionLow( $time )`: Clouds low (%)
+Clouds low (%)
+`$this->weather->getCloudAreaFractionLow( $time )`
 
-`$this->weather->getCloudAreaFractionMedium( $time )`: Clouds medium (%)
+Clouds medium (%)
+`$this->weather->getCloudAreaFractionMedium( $time )`
 
-`$this->weather->getCloudAreaFractionHigh( $time )`: Clouds high (%)
+Clouds high (%)
+`$this->weather->getCloudAreaFractionHigh( $time )`
 
-`$this->weather->getUVindex( $time )`: UV index
+UV index
+`$this->weather->getUVindex( $time )`
 
-`$this->weather->getPrecipitationAmount( $time )`: Precipitation amount (mm)
+Precipitation amount (mm)
+`$this->weather->getPrecipitationAmount( $time )`
 
-`$this->weather->getIconName( $time )`: Name of the weather icon ([https://api.met.no/weatherapi/weathericon/2.0/documentation](https://api.met.no/weatherapi/weathericon/2.0/documentation))
+Name of the weather icon ([Documentation](https://api.met.no/weatherapi/weathericon/2.0/documentation))
+`$this->weather->getIconName( $time )`
 
-`$this->weather->getLastUpdate()`: Last forecast update time
+Last forecast update time
+`$this->weather->getLastUpdate()`
 
-`$this->weather->getData()`: JSON data from Yr.no API
+JSON data from Yr.no API
+`$this->weather->getData()`
 
 
 ## Support
-**Forecast from Yr.no** is open source and free. Donate for coffee or just like that:
+**Forecast from Yr.no for Codeigniter4** is open source and free. Donate for coffee or just like that:
 
-BTC: `bc1q03v5la7uvcwxr7z4qn03ex6n5edju6zv4n6ppt`
+**BTC**: `bc1q03v5la7uvcwxr7z4qn03ex6n5edju6zv4n6ppt`
 
 ## License
-**Forecast from Yr.no** is open source software licensed under the [MIT license](https://tldrlegal.com/license/mit-license).
+**Forecast from Yr.no for Codeigniter4** is open source software licensed under the [MIT license](https://tldrlegal.com/license/mit-license).
